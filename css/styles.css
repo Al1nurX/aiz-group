@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "Soyuz Grotesk";
+  src: url("/fonts/soyuz-grotesk/Soyuz\ Grotesk\ Bold.woff") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 40px;
+}
+
+.menu__list {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+
+.menu__list a {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+}
+
+.menu__contact {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.menu__contact span {
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.menu__contact button {
+  all: unset;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  background: linear-gradient(92.97deg, #361f17 2.06%, #9c5a42 118.49%);
+}
+
+main {
+  margin: 20px 40px;
+}
+
+.main__section {
+  display: flex;
+  justify-content: space-between;
+  height: 580px;
+  /* gap: 40px; */
+}
+
+.first-main-section__left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.first-main-section__left h2 {
+  font-family: "Soyuz Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 68px;
+  color: #000000;
+}
+
+.about__me {
+  display: flex;
+  gap: 50px;
+}
+
+.about__me-item {
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.about__me-item img {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 40px;
+}
+
+.about__me-item p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 21px;
+  color: #000000;
+}
+
+.first-main-section__left button {
+  all: unset;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  align-self: flex-start;
+  background: linear-gradient(92.97deg, #361f17 2.06%, #9c5a42 118.49%);
+}
+
+.first-main-section__right {
+  width: 50%;
+}
+
+.first-main-section__right img {
+  /* width: 624px; */
+  height: 100%;
+}
