@@ -1,10 +1,11 @@
 var swiper = new Swiper(".swiper", {
 	slidesPerView: 3,
-	spaceBetween: 30,
 	// parallax: true,
 	// loop: true,
 	speed: 600,
-	mousewheel: true,
+	mousewheel: {
+		forceToAxis: true,
+	},
 	autoplay: {
 		delay: 8000,
 		disableOnInteraction: false,
@@ -12,5 +13,27 @@ var swiper = new Swiper(".swiper", {
 	pagination: {
 		el: ".swiper-pagination",
 		clickable: true,
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 15,
+		},
+		480: {
+			slidesPerView: 2,
+			// spaceBetween: 15,
+		},
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 20,
+		},
+		1024: {
+			slidesPerView: 3,
+			spaceBetween: 25,
+		},
+		1280: {
+			slidesPerView: 3,
+			spaceBetween: 30,
+		},
 	},
 });
