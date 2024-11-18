@@ -1,6 +1,5 @@
 var swiper = new Swiper(".swiper", {
 	slidesPerView: 3,
-	// parallax: true,
 	// loop: true,
 	speed: 600,
 	mousewheel: {
@@ -21,7 +20,7 @@ var swiper = new Swiper(".swiper", {
 		},
 		480: {
 			slidesPerView: 2,
-			// spaceBetween: 15,
+			spaceBetween: 15,
 		},
 		768: {
 			slidesPerView: 2,
