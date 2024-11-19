@@ -98,7 +98,7 @@
 .second-main-section__right,
 .services-section-cards__item,
 .swiper-slide {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
 }
 
 .about__me-item {
@@ -360,7 +360,7 @@ form button {
 /* Мобильные устройства (портретная ориентация) */
 @media (min-width: 320px) {
   .menu {
-    margin: 20px 25px;
+    margin: 30px 20px 25px;
   }
 
   .second-main-section-left__bottom button,
@@ -574,7 +574,7 @@ form button {
 /* Мобильные устройства (альбомная ориентация) */
 @media (min-width: 480px) {
   .menu {
-    margin: 20px 25px 25px;
+    margin: 30px 25px 25px;
   }
 
   .second-main-section-left__bottom button,
@@ -858,7 +858,7 @@ form button {
   }
 }
 
-/* Ноутбуки */
+/* Ноутбуки с маленьким экраном */
 @media (min-width: 1024px) {
   .menu__contact button {
     padding: 9px 20px;
@@ -1026,7 +1026,7 @@ form button {
   }
 }
 
-/* Большие экраны ноутбуков и настольных компьютеров */
+/* Ноутбуки с большим разрешением */
 @media (min-width: 1280px) {
   .menu {
     margin: 20px 40px 30px;
@@ -1183,7 +1183,7 @@ form button {
   }
 }
 
-/* Экраны с шириной 1440 пикселей и больше */
+/* Большие экраны */
 @media (min-width: 1440px) {
   .first-main-section__right img {
     width: 624px;
