@@ -1,75 +1,71 @@
 // GSAP Animations
 document.addEventListener('DOMContentLoaded', () => {
-	let resizeTimeout;
+	const mm = gsap.matchMedia(),
+		breakPoint = 800;
 
-	const applyAnimations = () => {
-		const screenWidth = window.innerWidth;
-
-		gsap.killTweensOf(".menu__list li, .main-section__left h2");
-
-		const commonAnimation = {
-			duration: 1,
-			opacity: 0,
-		};
-
-		if (screenWidth >= 1200) {
-			gsap.from(".menu__list li", { ...commonAnimation, y: 20, stagger: 0.2 });
-			gsap.from(".main-section__left h2", { ...commonAnimation, x: -30 });
-		} else if (screenWidth >= 992) {
-			gsap.from(".menu__list li", { ...commonAnimation, y: 20, stagger: 0.2 });
-			gsap.from(".main-section__left h2", { ...commonAnimation, x: -20 });
-		} else if (screenWidth >= 768) {
-			gsap.from(".menu__list li", { ...commonAnimation, y: 15, stagger: 0.2 });
-			gsap.from(".main-section__left h2", { ...commonAnimation, x: -15 });
-		} else {
-			gsap.from(".menu__list li", { ...commonAnimation, y: 10, stagger: 0.2 });
-			gsap.from(".main-section__left h2", { ...commonAnimation, x: 15 });
-		}
+	const commonAnimation = {
+		duration: 1,
+		opacity: 0,
 	};
 
-	const floatingAnimation = gsap.to(".main-section__right img", {
+	mm.add(
+		{
+			isDesktop: `(min-width: ${breakPoint}px)`,
+			isMobile: `(max-width: ${breakPoint - 1}px)`,
+			reduceMotion: "(prefers-reduced-motion: reduce)",
+		},
+		(context) => {
+			const { isDesktop, isMobile, reduceMotion } = context.conditions;
+
+			gsap.from(".menu__list li", {
+				...commonAnimation,
+				y: isDesktop ? 20 : 10,
+				stagger: 0.2,
+			});
+
+			gsap.from(".main-section__left h2", {
+				...commonAnimation,
+				x: isDesktop ? -25 : 15,
+			});
+
+			return () => {
+				gsap.killTweensOf(".menu__list li, .main-section__left h2");
+			};
+		}
+	);
+
+	gsap.to(".main-section__right img", {
 		y: -10,
 		repeat: -1,
 		yoyo: true,
 		ease: "power1.inOut",
 		duration: 2,
 	});
-
-	applyAnimations();
-
-	window.addEventListener("resize", () => {
-		floatingAnimation.pause();
-		clearTimeout(resizeTimeout);
-		resizeTimeout = setTimeout(() => {
-			applyAnimations();
-			floatingAnimation.play();
-		}, 200);
-	});
-
-	// gsap.from(".about-me__left", {
-	//   x: -50,
-	//   opacity: 0,
-	//   duration: 1,
-	//   ease: "power3.out",
-	//   scrollTrigger: {
-	//     trigger: ".about-me__section",
-	//     start: "top 80%",
-	//     toggleActions: "play reverse play reverse",
-	//   },
-	// });
-
-	// gsap.from(".about-me__right", {
-	//   x: 50,
-	//   opacity: 0,
-	//   duration: 1,
-	//   ease: "power3.out",
-	//   scrollTrigger: {
-	//     trigger: ".about-me__section",
-	//     start: "top 80%",
-	//     toggleActions: "play reverse play reverse",
-	//   },
-	// });
 });
+
+// gsap.from(".about-me__left", {
+//   x: -50,
+//   opacity: 0,
+//   duration: 1,
+//   ease: "power3.out",
+//   scrollTrigger: {
+//     trigger: ".about-me__section",
+//     start: "top 80%",
+//     toggleActions: "play reverse play reverse",
+//   },
+// });
+
+// gsap.from(".about-me__right", {
+//   x: 50,
+//   opacity: 0,
+//   duration: 1,
+//   ease: "power3.out",
+//   scrollTrigger: {
+//     trigger: ".about-me__section",
+//     start: "top 80%",
+//     toggleActions: "play reverse play reverse",
+//   },
+// });
 
 // Smooth Scroll
 document.addEventListener('DOMContentLoaded', () => {
