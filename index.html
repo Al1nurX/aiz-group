@@ -182,13 +182,14 @@
 
 					<input type="hidden" name="_subject" value="Новая заявка с сайта">
 					<input type="hidden" name="_captcha" value="false">
-					<input type="text" name="_honey" style="display:none">
+					<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 					<input type="hidden" name="_template" value="box">
 
 					<div class="error__message"></div>
 
 					<button>Оставить заявку</button>
 				</form>
+				<div id="loader">Отправка...</div>
 				<div id="success__message">
 					<p>Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.</p>
 				</div>

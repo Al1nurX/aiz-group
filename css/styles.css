@@ -68,6 +68,7 @@
 
 .menu__contact a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .menu__contact button {
@@ -334,6 +335,14 @@ form button {
   font-size: 16px;
   line-height: 24px;
   color: red;
+}
+
+#loader {
+  display: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
 }
 
 #success__message {

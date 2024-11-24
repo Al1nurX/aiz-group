@@ -1,13 +1,16 @@
 // GSAP Animations
 document.addEventListener('DOMContentLoaded', () => {
+	let resizeTimeout;
+
 	const applyAnimations = () => {
 		const screenWidth = window.innerWidth;
+
+		gsap.killTweensOf(".menu__list li, .main-section__left h2");
+
 		const commonAnimation = {
 			duration: 1,
 			opacity: 0,
 		};
-
-		gsap.killTweensOf(".menu__list li, .main-section__left h2, .main-section__right img");
 
 		if (screenWidth >= 1200) {
 			gsap.from(".menu__list li", { ...commonAnimation, y: 20, stagger: 0.2 });
@@ -24,20 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	};
 
-	let resizeTimeout;
-	applyAnimations();
-
-	window.addEventListener("resize", () => {
-		clearTimeout(resizeTimeout);
-		resizeTimeout = setTimeout(applyAnimations, 200);
-	});
-
-	gsap.to(".main-section__right img", {
+	const floatingAnimation = gsap.to(".main-section__right img", {
 		y: -10,
 		repeat: -1,
 		yoyo: true,
 		ease: "power1.inOut",
 		duration: 2,
+	});
+
+	applyAnimations();
+
+	window.addEventListener("resize", () => {
+		floatingAnimation.pause();
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(() => {
+			applyAnimations();
+			floatingAnimation.play();
+		}, 200);
 	});
 
 	// gsap.from(".about-me__left", {
@@ -90,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementById('contact__form');
 	const successMessage = document.getElementById('success__message');
 	const errorMessage = document.querySelector('.error__message');
+	const loader = document.getElementById('loader');
 
 	if (form) {
 		const isEmptyOrSpaces = (str) => !str || str.trim().length === 0;
@@ -104,7 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		};
 
 		form.addEventListener('input', (event) => {
-			if (event.target.tagName === 'INPUT' && event.target.type === 'text') {
+			if (
+				event.target.tagName === 'INPUT' &&
+				event.target.type === 'text' &&
+				event.target.name !== '_honey'
+			) {
 				validateInput(event.target);
 			}
 		});
@@ -112,8 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		form.addEventListener('submit', (event) => {
 			event.preventDefault();
 
-			const inputs = form.querySelectorAll('input[type="text"]');
+			const inputs = form.querySelectorAll('input[type="text"]:not([name="_honey"])');
+			const honeypot = form.querySelector('[name="_honey"]');
 			let hasError = false;
+
+			if (!isEmptyOrSpaces(honeypot.value)) {
+				console.log('Spam detected! Honeypot field should be empty.');
+				errorMessage.textContent = 'Форма не отправлена. Пожалуйста, попробуйте снова.';
+				errorMessage.style.display = 'block';
+				return;
+			}
 
 			inputs.forEach((input) => {
 				validateInput(input);
@@ -130,6 +149,11 @@ document.addEventListener('DOMContentLoaded', () => {
 				errorMessage.style.display = 'none';
 			}
 
+			if (loader) {
+				loader.style.display = 'block';
+				form.style.display = 'none';
+			}
+
 			const formData = new FormData(form);
 
 			fetch(form.action, {
@@ -137,16 +161,20 @@ document.addEventListener('DOMContentLoaded', () => {
 				body: formData,
 			})
 				.then((response) => {
+					loader.style.display = 'none';
 					if (response.ok) {
 						form.style.display = 'none';
 						successMessage.style.display = 'block';
 					} else {
-						alert('Ошибка при отправке формы. Пожалуйста, попробуйте снова.');
+						errorMessage.textContent = 'Ошибка при отправке формы. Пожалуйста, попробуйте снова.';
+						errorMessage.style.display = 'block';
 					}
 				})
 				.catch((error) => {
 					console.error('Ошибка:', error);
-					alert('Ошибка при отправке формы. Пожалуйста, попробуйте снова.');
+					loader.style.display = 'none';
+					errorMessage.textContent = 'Ошибка при отправке формы. Пожалуйста, попробуйте снова.';
+					errorMessage.style.display = 'block';
 				});
 		});
 	}
