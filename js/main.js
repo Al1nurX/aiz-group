@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	gsap.registerPlugin(ScrollTrigger);
 
 	const mm = gsap.matchMedia();
-	const breakPoint = 1024;
+	const breakPointDesktop = 1024;
+	const breakPointTablet = 768;
 
 	const commonAnimation = {
 		duration: 1,
@@ -18,22 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	mm.add(
 		{
-			isDesktop: `(min-width: ${breakPoint}px)`,
-			isMobile: `(max-width: ${breakPoint - 1}px)`,
+			isDesktop: `(min-width: ${breakPointDesktop}px)`,
+			isTablet: `(min-width: ${breakPointTablet}px) and (max-width: ${breakPointDesktop - 1}px)`,
+			isMobile: `(max-width: ${breakPointTablet - 1}px)`,
 			reduceMotion: "(prefers-reduced-motion: reduce)",
 		},
 		(context) => {
-			const { isDesktop, isMobile } = context.conditions;
+			const { isDesktop, isTablet, isMobile } = context.conditions;
+
+			const yOffset = isDesktop ? 20 : isTablet ? 15 : 10;
+			const xOffsetMainSection = isDesktop ? -25 : isTablet ? -20 : 15;
 
 			gsap.from(".menu__list li", {
 				...commonAnimation,
-				y: isDesktop ? 20 : 10,
+				y: yOffset,
 				stagger: 0.2,
 			});
 
 			gsap.from(".main-section__left h2", {
 				...commonAnimation,
-				x: isDesktop ? -25 : 15,
+				x: xOffsetMainSection,
 			});
 
 			const aboutMeAnimation = (selector, xOffset, yOffset) => {
@@ -48,14 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 			};
 
-			aboutMeAnimation(".about-me__left", isDesktop ? -30 : 0, isMobile ? 20 : 0);
-			aboutMeAnimation(".about-me__right", isDesktop ? 30 : 0, isMobile ? 20 : 0);
+			aboutMeAnimation(".about-me__left", isDesktop ? -30 : isTablet ? -20 : 0, isMobile ? 15 : 0);
+			aboutMeAnimation(".about-me__right", isDesktop ? 30 : isTablet ? 20 : 0, isMobile ? 15 : 0);
 
 			const servicesCards = [
-				{ selector: ".services-section-card__seminar", xOffset: isDesktop ? -30 : -25 },
-				{ selector: ".services-section-card__communication", xOffset: isDesktop ? -30 : 25 },
-				{ selector: ".services-section-card__concentration", xOffset: isDesktop ? 30 : -25 },
-				{ selector: ".services-section-card__compliance", xOffset: isDesktop ? 30 : 25 },
+				{ selector: ".services-section-card__seminar", xOffset: isDesktop ? -30 : isTablet ? -20 : -15 },
+				{ selector: ".services-section-card__communication", xOffset: isDesktop ? -30 : isTablet ? -20 : 15 },
+				{ selector: ".services-section-card__concentration", xOffset: isDesktop ? 30 : isTablet ? 20 : -15 },
+				{ selector: ".services-section-card__compliance", xOffset: isDesktop ? 30 : isTablet ? 20 : 15 },
 			];
 
 			servicesCards.forEach(({ selector, xOffset }) => {
@@ -72,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			gsap.from(".swiper", {
 				duration: 1,
 				opacity: 0.5,
-				y: isDesktop ? 30 : 25,
+				y: isDesktop ? 30 : isTablet ? 20 : 15,
 				scrollTrigger: {
 					trigger: ".reviews__section",
 					...commonScrollTriggerSettings,
@@ -95,8 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
 // Smooth Scroll
 document.addEventListener('DOMContentLoaded', () => {
 	const scroll = new SmoothScroll('a[href*="#"]', {
-		speed: 1000,
+		speed: 1100,
+		speedAsDuration: false,
+		durationMax: 2000,
+		durationMin: 1000,
 		easing: 'easeInOutQuad',
+		clip: true,
 		offset: (anchor) => {
 			const elementHeight = anchor.getBoundingClientRect().height;
 			const viewportHeight = window.innerHeight;
