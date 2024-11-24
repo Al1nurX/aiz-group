@@ -1,11 +1,19 @@
 // GSAP Animations
-document.addEventListener('DOMContentLoaded', () => {
-	const mm = gsap.matchMedia(),
-		breakPoint = 800;
+document.addEventListener("DOMContentLoaded", () => {
+	gsap.registerPlugin(ScrollTrigger);
+
+	const mm = gsap.matchMedia();
+	const breakPoint = 1024;
 
 	const commonAnimation = {
 		duration: 1,
 		opacity: 0,
+	};
+
+	const commonScrollTriggerSettings = {
+		start: "top 85%",
+		end: "bottom 15%",
+		toggleActions: "play reverse play reverse",
 	};
 
 	mm.add(
@@ -15,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			reduceMotion: "(prefers-reduced-motion: reduce)",
 		},
 		(context) => {
-			const { isDesktop, isMobile, reduceMotion } = context.conditions;
+			const { isDesktop, isMobile } = context.conditions;
 
 			gsap.from(".menu__list li", {
 				...commonAnimation,
@@ -28,44 +36,61 @@ document.addEventListener('DOMContentLoaded', () => {
 				x: isDesktop ? -25 : 15,
 			});
 
-			return () => {
-				gsap.killTweensOf(".menu__list li, .main-section__left h2");
+			const aboutMeAnimation = (selector, xOffset, yOffset) => {
+				gsap.from(selector, {
+					...commonAnimation,
+					x: xOffset,
+					y: yOffset,
+					scrollTrigger: {
+						trigger: ".about-me__section",
+						...commonScrollTriggerSettings,
+					},
+				});
 			};
+
+			aboutMeAnimation(".about-me__left", isDesktop ? -30 : 0, isMobile ? 20 : 0);
+			aboutMeAnimation(".about-me__right", isDesktop ? 30 : 0, isMobile ? 20 : 0);
+
+			const servicesCards = [
+				{ selector: ".services-section-card__seminar", xOffset: isDesktop ? -30 : -25 },
+				{ selector: ".services-section-card__communication", xOffset: isDesktop ? -30 : 25 },
+				{ selector: ".services-section-card__concentration", xOffset: isDesktop ? 30 : -25 },
+				{ selector: ".services-section-card__compliance", xOffset: isDesktop ? 30 : 25 },
+			];
+
+			servicesCards.forEach(({ selector, xOffset }) => {
+				gsap.from(selector, {
+					...commonAnimation,
+					x: xOffset,
+					scrollTrigger: {
+						trigger: ".services__section",
+						...commonScrollTriggerSettings,
+					},
+				});
+			});
+
+			gsap.from(".swiper", {
+				duration: 1,
+				opacity: 0.5,
+				y: isDesktop ? 30 : 25,
+				scrollTrigger: {
+					trigger: ".reviews__section",
+					...commonScrollTriggerSettings,
+				},
+			});
+
+			gsap.to(".main-section__right img", {
+				y: -10,
+				repeat: -1,
+				yoyo: true,
+				ease: "power1.inOut",
+				duration: 2,
+			});
+
+			return () => context.revert();
 		}
 	);
-
-	gsap.to(".main-section__right img", {
-		y: -10,
-		repeat: -1,
-		yoyo: true,
-		ease: "power1.inOut",
-		duration: 2,
-	});
 });
-
-// gsap.from(".about-me__left", {
-//   x: -50,
-//   opacity: 0,
-//   duration: 1,
-//   ease: "power3.out",
-//   scrollTrigger: {
-//     trigger: ".about-me__section",
-//     start: "top 80%",
-//     toggleActions: "play reverse play reverse",
-//   },
-// });
-
-// gsap.from(".about-me__right", {
-//   x: 50,
-//   opacity: 0,
-//   duration: 1,
-//   ease: "power3.out",
-//   scrollTrigger: {
-//     trigger: ".about-me__section",
-//     start: "top 80%",
-//     toggleActions: "play reverse play reverse",
-//   },
-// });
 
 // Smooth Scroll
 document.addEventListener('DOMContentLoaded', () => {
