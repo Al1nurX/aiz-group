@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			const { isDesktop, isTablet, isMobile } = context.conditions;
 
 			const yOffset = isDesktop ? 20 : isTablet ? 15 : 10;
-			const xOffsetMainSection = isDesktop ? -25 : isTablet ? -20 : 15;
+			const xOffsetMainSection = isDesktop ? -25 : isTablet ? -20 : 20;
 
 			gsap.from(".menu__list li", {
 				...commonAnimation,
