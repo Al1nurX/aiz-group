@@ -15,10 +15,10 @@
 	<link rel="manifest" href="favicons/site.webmanifest">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
+	<link rel="preload"
 		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		as="style" onload="this.rel='stylesheet'">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
 	<link rel="stylesheet" href="css/styles.css">
 	<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 	<script defer
@@ -180,7 +180,7 @@
 	</main>
 	<footer id="footer">
 		<div class="upper__footer">
-			<img src="images/laura-2.webp" alt="my photo">
+			<img src="images/laura-2.webp" alt="Антимонопольный эксперт с опытом 9 лет" loading="lazy">
 			<div class="upper-footer__form">
 				<h3>Оставьте заявку и получите экспертную поддержку и защиту ваших интересов</h3>
 				<form id="contact__form" action="https://formsubmit.co/8bca2eeb159c0965bfe9dd654005f98f" method="POST">
