@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				stagger: 0.2,
 			});
 
-			gsap.from(".main-section__left h2", {
+			gsap.from(".main-section__left h1", {
 				...commonAnimation,
 				x: xOffsetMainSection,
 			});
@@ -74,15 +74,15 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 			});
 
-			gsap.from(".swiper", {
-				duration: 1,
-				opacity: 0.5,
-				y: isDesktop ? 30 : isTablet ? 20 : 15,
-				scrollTrigger: {
-					trigger: ".reviews__section",
-					...commonScrollTriggerSettings,
-				},
-			});
+			// gsap.from(".swiper", {
+			// 	duration: 1,
+			// 	opacity: 0.5,
+			// 	y: isDesktop ? 30 : isTablet ? 20 : 15,
+			// 	scrollTrigger: {
+			// 		trigger: ".reviews__section",
+			// 		...commonScrollTriggerSettings,
+			// 	},
+			// });
 
 			gsap.to(".main-section__right img", {
 				y: -10,
@@ -95,6 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
 			return () => context.revert();
 		}
 	);
+});
+
+// Menu Animation
+document.addEventListener("DOMContentLoaded", function () {
+	const links = document.querySelectorAll(".menu__list a");
+
+	links.forEach(link => {
+		link.addEventListener("click", function () {
+			this.classList.add("clicked");
+
+			setTimeout(() => {
+				this.classList.remove("clicked");
+			}, 1000);
+		});
+	});
 });
 
 // Smooth Scroll
@@ -211,42 +226,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Carousel
-document.addEventListener('DOMContentLoaded', () => {
-	new Swiper(".swiper", {
-		slidesPerView: 3,
-		speed: 600,
-		mousewheel: {
-			forceToAxis: true,
-		},
-		autoplay: {
-			delay: 8000,
-			disableOnInteraction: false,
-		},
-		pagination: {
-			el: ".swiper-pagination",
-			clickable: true,
-		},
-		breakpoints: {
-			320: {
-				slidesPerView: 1,
-				spaceBetween: 15,
-			},
-			480: {
-				slidesPerView: 2,
-				spaceBetween: 15,
-			},
-			768: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-			},
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 25,
-			},
-			1280: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			},
-		},
-	});
-});
+// document.addEventListener('DOMContentLoaded', () => {
+// 	new Swiper(".swiper", {
+// 		slidesPerView: 3,
+// 		speed: 600,
+// 		mousewheel: {
+// 			forceToAxis: true,
+// 		},
+// 		autoplay: {
+// 			delay: 8000,
+// 			disableOnInteraction: false,
+// 		},
+// 		pagination: {
+// 			el: ".swiper-pagination",
+// 			clickable: true,
+// 		},
+// 		breakpoints: {
+// 			320: {
+// 				slidesPerView: 1,
+// 				spaceBetween: 15,
+// 			},
+// 			480: {
+// 				slidesPerView: 2,
+// 				spaceBetween: 15,
+// 			},
+// 			768: {
+// 				slidesPerView: 2,
+// 				spaceBetween: 20,
+// 			},
+// 			1024: {
+// 				slidesPerView: 3,
+// 				spaceBetween: 25,
+// 			},
+// 			1280: {
+// 				slidesPerView: 3,
+// 				spaceBetween: 30,
+// 			},
+// 		},
+// 	});
+// });
