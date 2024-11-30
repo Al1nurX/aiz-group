@@ -1,8 +1,28 @@
 @font-face {
-  font-family: "Soyuz Grotesk";
-  src: url("/fonts/soyuz-grotesk/Soyuz\ Grotesk\ Bold.woff") format("woff2");
-  font-weight: normal;
+  font-family: "Inter";
+  src: url("/fonts/inter/Inter-Regular.woff2") format("woff2"),
+    url("/fonts/inter/Inter-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter/Inter-Medium.woff2") format("woff2"),
+    url("/fonts/inter/Inter-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Soyuz Grotesk";
+  src: url("/fonts/soyuz-grotesk/Soyuz\ Grotesk\ Bold.woff2") format("woff2"),
+    url("/fonts/soyuz-grotesk/Soyuz\ Grotesk\ Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
@@ -88,7 +108,7 @@
   color: #000000;
 }
 
-.about-me__section h3 {
+.about-me__section h2 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
   color: #000000;
@@ -142,7 +162,7 @@
   background: linear-gradient(92.97deg, #361f17 2.06%, #9c5a42 118.49%);
 }
 
-.services__section h3 {
+.services__section h2 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
   color: #000000;
@@ -165,7 +185,7 @@
   gap: 10px;
 }
 
-.service__content h4 {
+.service__content h3 {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   color: #000000;
@@ -253,7 +273,7 @@ footer {
   justify-content: center;
 }
 
-.upper-footer__form h3 {
+.upper-footer__form h2 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
   color: #ffffff;
@@ -415,7 +435,7 @@ form button {
     margin-bottom: 35px;
   }
 
-  .about-me__section h3 {
+  .about-me__section h2 {
     font-size: 26px;
     margin-bottom: 20px;
   }
@@ -454,7 +474,7 @@ form button {
     margin-bottom: 35px;
   }
 
-  .services__section h3 {
+  .services__section h2 {
     font-size: 26px;
     margin-bottom: 20px;
   }
@@ -476,7 +496,7 @@ form button {
     height: 35px;
   }
 
-  .service__content h4 {
+  .service__content h3 {
     font-size: 18px;
   }
 
@@ -532,7 +552,7 @@ form button {
     padding: 30px 20px;
   }
 
-  .upper-footer__form h3 {
+  .upper-footer__form h2 {
     font-size: 30px;
   }
 
@@ -614,7 +634,7 @@ form button {
     margin-bottom: 40px;
   }
 
-  .about-me__section h3 {
+  .about-me__section h2 {
     font-size: 28px;
     margin-bottom: 20px;
   }
@@ -633,11 +653,11 @@ form button {
     margin-bottom: 40px;
   }
 
-  .services__section h3 {
+  .services__section h2 {
     font-size: 28px;
   }
 
-  .service__content h4 {
+  .service__content h3 {
     font-size: 19px;
   }
 
@@ -745,7 +765,7 @@ form button {
     margin-bottom: 45px;
   }
 
-  .about-me__section h3 {
+  .about-me__section h2 {
     font-size: 30px;
     margin-bottom: 25px;
   }
@@ -777,7 +797,7 @@ form button {
     margin-bottom: 45px;
   }
 
-  .services__section h3 {
+  .services__section h2 {
     font-size: 30px;
     margin-bottom: 25px;
   }
@@ -799,7 +819,7 @@ form button {
     height: 40px;
   }
 
-  .service__content h4 {
+  .service__content h3 {
     font-size: 20px;
   }
 
@@ -837,7 +857,7 @@ form button {
     padding: 40px 30px;
   }
 
-  .upper-footer__form h3 {
+  .upper-footer__form h2 {
     font-size: 35px;
   }
 
@@ -920,7 +940,7 @@ form button {
     gap: 40px;
   }
 
-  .about-me__section h3 {
+  .about-me__section h2 {
     font-size: 32px;
     margin-bottom: 25px;
   }
@@ -948,7 +968,7 @@ form button {
     margin-bottom: 50px;
   }
 
-  .services__section h3 {
+  .services__section h2 {
     font-size: 32px;
   }
 
@@ -982,7 +1002,7 @@ form button {
     height: 45px;
   }
 
-  .service__content h4 {
+  .service__content h3 {
     font-size: 22px;
   }
 
@@ -1029,7 +1049,7 @@ form button {
     padding: 0 25px;
   }
 
-  .upper-footer__form h3 {
+  .upper-footer__form h2 {
     width: 95%;
   }
 
@@ -1102,7 +1122,7 @@ form button {
     margin-bottom: 70px;
   }
 
-  .about-me__section h3 {
+  .about-me__section h2 {
     font-size: 38px;
     margin-bottom: 30px;
   }
@@ -1126,7 +1146,7 @@ form button {
     margin-bottom: 70px;
   }
 
-  .services__section h3 {
+  .services__section h2 {
     font-size: 38px;
     margin-bottom: 30px;
   }
@@ -1146,7 +1166,7 @@ form button {
     height: 55px;
   }
 
-  .service__content h4 {
+  .service__content h3 {
     font-size: 26px;
   }
 
@@ -1197,7 +1217,7 @@ form button {
     padding: 0 35px;
   }
 
-  .upper-footer__form h3 {
+  .upper-footer__form h2 {
     width: 95%;
     font-size: 45px;
   }
@@ -1227,7 +1247,7 @@ form button {
     line-height: 31.5px;
   }
 
-  .upper-footer__form h3 {
+  .upper-footer__form h2 {
     width: 80%;
     font-size: 50px;
     line-height: 60px;
