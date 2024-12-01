@@ -148,24 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			scroll.animateScroll(document.querySelector('#footer'));
 		});
 	}
-
-	// Кнопка прокрутки вверх
-	const scrollToTopButton = document.getElementById('scroll-to-top');
-	window.addEventListener('scroll', () => {
-		if (window.scrollY > 300) {
-			scrollToTopButton.style.display = 'flex';
-			scrollToTopButton.style.opacity = '1';
-		} else {
-			scrollToTopButton.style.opacity = '0';
-			setTimeout(() => {
-				if (window.scrollY <= 300) scrollToTopButton.style.display = 'none';
-			}, 300);
-		}
-	});
-
-	scrollToTopButton.addEventListener('click', () => {
-		scroll.animateScroll(0);
-	});
 });
 
 // Form Submission
