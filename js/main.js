@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		durationMin: 1000,
 		easing: 'easeInOutQuad',
 		clip: true,
-		updateURL: true,
+		updateURL: false,
 		offset: (anchor) => {
 			const elementHeight = anchor.getBoundingClientRect().height;
 			const viewportHeight = window.innerHeight;
@@ -148,6 +148,54 @@ document.addEventListener('DOMContentLoaded', () => {
 			scroll.animateScroll(document.querySelector('#footer'));
 		});
 	}
+
+	const scrollToTopButton = document.getElementById('scroll-to-top');
+	let lastScrollY = window.scrollY;
+	let inactivityTimeout;
+
+	const hideButton = () => {
+		scrollToTopButton.style.opacity = '0';
+		setTimeout(() => {
+			scrollToTopButton.style.display = 'none';
+		}, 300);
+	};
+
+	const showButton = () => {
+		scrollToTopButton.style.display = 'flex';
+		scrollToTopButton.style.opacity = '1';
+	};
+
+	const resetInactivityTimer = () => {
+		clearTimeout(inactivityTimeout);
+		if (scrollToTopButton.style.opacity === '1') {
+			inactivityTimeout = setTimeout(hideButton, 3000);
+		}
+	};
+
+	window.addEventListener('scroll', () => {
+		const currentScrollY = window.scrollY;
+
+		if (currentScrollY > 300 && currentScrollY > lastScrollY) {
+			showButton();
+		} else {
+			hideButton();
+		}
+
+		lastScrollY = currentScrollY;
+		resetInactivityTimer();
+	});
+
+	scrollToTopButton.addEventListener('click', function () {
+		this.classList.add('clicked');
+		scroll.animateScroll(0);
+		setTimeout(() => {
+			this.classList.remove('clicked');
+		}, 1000);
+	});
+
+	['mousemove', 'keydown', 'touchstart'].forEach(event => {
+		window.addEventListener(event, resetInactivityTimer);
+	});
 });
 
 // Form Submission

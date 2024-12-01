@@ -389,6 +389,26 @@ form button {
   color: #ffffff;
 }
 
+#scroll-to-top {
+  position: fixed;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  border: none;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+#scroll-to-top img {
+  width: 18px;
+  height: 18px;
+}
+
 /* Мобильные устройства (портретная ориентация) */
 @media (min-width: 320px) {
   header {
@@ -620,6 +640,13 @@ form button {
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
   }
+
+  #scroll-to-top {
+    bottom: 18px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* Мобильные устройства (альбомная ориентация) */
@@ -733,6 +760,11 @@ form button {
 
   .lower__footer {
     padding: 5px 25px 30px;
+  }
+
+  #scroll-to-top {
+    bottom: 20px;
+    right: 15px;
   }
 }
 
@@ -902,6 +934,10 @@ form button {
   .lower-footer__icons {
     gap: 10px;
   }
+
+  #scroll-to-top {
+    bottom: 25px;
+  }
 }
 
 /* Ноутбуки с маленьким экраном */
@@ -909,15 +945,6 @@ form button {
   .menu__list,
   .menu__contact {
     gap: 40px;
-  }
-
-  .menu__list a:hover {
-    color: #9c5a42;
-  }
-
-  .menu__list a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
   }
 
   .menu__contact,
@@ -1097,11 +1124,6 @@ form button {
     cursor: pointer;
     transition: all 0.5s ease-in-out;
   }
-
-  .lower-footer__icons a:hover {
-    color: #2a1b14;
-    background-color: #f7f7f7;
-  }
 }
 
 /* Ноутбуки с большим разрешением */
@@ -1113,6 +1135,15 @@ form button {
   .menu__list,
   .menu__contact {
     gap: 55px;
+  }
+
+  .menu__list a:hover {
+    color: #9c5a42;
+  }
+
+  .menu__list a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 
   .menu__contact button,
@@ -1260,6 +1291,23 @@ form button {
 
   .lower-footer__icons {
     gap: 12px;
+  }
+
+  .lower-footer__icons a:hover {
+    color: #2a1b14;
+    background-color: #f7f7f7;
+  }
+
+  #scroll-to-top {
+    bottom: 30px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+
+  #scroll-to-top:hover {
+    background-color: #e9ecef;
+    transform: scale(1.05);
   }
 }
 
