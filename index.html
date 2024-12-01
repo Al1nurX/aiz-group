@@ -14,7 +14,6 @@
 	<link rel="preload" href="/fonts/inter/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 	<link rel="preload" href="/fonts/soyuz-grotesk/Soyuz Grotesk Bold.woff2" as="font" type="font/woff2"
 		crossorigin="anonymous">
-	<link rel="preload" as="image" href="images/laura-1.png" type="image/png">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -31,7 +30,10 @@
 	<!-- <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 </head>
 
-<body>
+<body class="hidden">
+	<div class="preloader">
+		<div class="loader"></div>
+	</div>
 	<header>
 		<nav class="menu">
 			<ul class="menu__list">
@@ -59,7 +61,7 @@
 				<button id="scroll-to-footer">Оставить заявку</button>
 			</div>
 			<div class="main-section__right">
-				<img src="images/laura-1.png" alt="Антимонопольный эксперт с опытом 9 лет" loading="eager">
+				<img src="images/laura-1.webp" alt="Антимонопольный эксперт с опытом 9 лет" loading="eager">
 			</div>
 		</section>
 		<section id="about" class="about-me__section">
@@ -235,7 +237,8 @@
 			</div>
 		</div>
 	</footer>
-	<script src="js/main.js" defer></script>
+	<button id="scroll-to-top" aria-label="Подняться наверх">↑</button>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
