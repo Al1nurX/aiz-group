@@ -132,6 +132,11 @@
   color: #000000;
 }
 
+.main-section__left h1::first-letter {
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
 .about-me__section h2 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
