@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (preloader) {
 			preloader.classList.add('hidden');
 		}
-	}, 100);
+	}, 600);
 });
 
 // GSAP Animations
