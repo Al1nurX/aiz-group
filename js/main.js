@@ -294,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		speed: 600,
 		mousewheel: {
 			forceToAxis: true,
+			releaseOnEdges: true,
 		},
 		keyboard: {
 			enabled: true,
