@@ -87,15 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 			});
 
-			// gsap.from(".swiper", {
-			// 	duration: 1,
-			// 	opacity: 0.5,
-			// 	y: isDesktop ? 30 : isTablet ? 20 : 15,
-			// 	scrollTrigger: {
-			// 		trigger: ".reviews__section",
-			// 		...commonScrollTriggerSettings,
-			// 	},
-			// });
+			gsap.from(".swiper", {
+				duration: 1,
+				opacity: 0.5,
+				y: isDesktop ? 30 : isTablet ? 20 : 15,
+				scrollTrigger: {
+					trigger: ".certificates__section",
+					...commonScrollTriggerSettings,
+				},
+			});
 
 			gsap.to(".main-section__right img", {
 				y: -10,
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		speed: 1100,
 		speedAsDuration: false,
 		durationMax: 2000,
-		durationMin: 1000,
+		durationMin: 1100,
 		easing: 'easeInOutQuad',
 		clip: true,
 		updateURL: false,
@@ -288,42 +288,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Carousel
-// document.addEventListener('DOMContentLoaded', () => {
-// 	new Swiper(".swiper", {
-// 		slidesPerView: 3,
-// 		speed: 600,
-// 		mousewheel: {
-// 			forceToAxis: true,
-// 		},
-// 		autoplay: {
-// 			delay: 8000,
-// 			disableOnInteraction: false,
-// 		},
-// 		pagination: {
-// 			el: ".swiper-pagination",
-// 			clickable: true,
-// 		},
-// 		breakpoints: {
-// 			320: {
-// 				slidesPerView: 1,
-// 				spaceBetween: 15,
-// 			},
-// 			480: {
-// 				slidesPerView: 2,
-// 				spaceBetween: 15,
-// 			},
-// 			768: {
-// 				slidesPerView: 2,
-// 				spaceBetween: 20,
-// 			},
-// 			1024: {
-// 				slidesPerView: 3,
-// 				spaceBetween: 25,
-// 			},
-// 			1280: {
-// 				slidesPerView: 3,
-// 				spaceBetween: 30,
-// 			},
-// 		},
-// 	});
-// });
+document.addEventListener('DOMContentLoaded', () => {
+	new Swiper(".swiper", {
+		slidesPerView: 3,
+		speed: 600,
+		mousewheel: {
+			forceToAxis: true,
+		},
+		keyboard: {
+			enabled: true,
+			onlyInViewport: true,
+		},
+		autoplay: {
+			delay: 8000,
+			disableOnInteraction: false,
+		},
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 15,
+			},
+			480: {
+				slidesPerView: 2,
+				spaceBetween: 15,
+			},
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 18,
+			},
+			1024: {
+				slidesPerView: 3,
+				spaceBetween: 18,
+			},
+			1280: {
+				slidesPerView: 3,
+				spaceBetween: 20,
+			},
+		},
+	});
+});
