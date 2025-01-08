@@ -132,9 +132,9 @@
   color: #000000;
 }
 
-.main-section__left h1::first-letter {
-  font-family: Arial, sans-serif;
+.uppercase {
   text-transform: uppercase;
+  font-family: Arial, sans-serif;
 }
 
 .about-us__section h2 {
@@ -162,7 +162,7 @@
   justify-content: space-between;
 }
 
-.about-me__section h2 {
+.about-me__section h2, h3 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
   color: #000000;
@@ -578,6 +578,11 @@ form button {
     margin-bottom: 20px;
   }
 
+  .about-me__section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
   .about-me-section__content {
     display: flex;
     flex-direction: column;
@@ -777,6 +782,11 @@ form button {
     margin-bottom: 20px;
   }
 
+  .about-me__section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
   .about-us-left__item,
   .about-us-right__item,
   .about-me__left,
@@ -901,6 +911,11 @@ form button {
 
   .about-me__section h2 {
     font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .about-me__section h3 {
+    font-size: 22px;
     margin-bottom: 25px;
   }
 
@@ -1126,6 +1141,11 @@ form button {
     margin-bottom: 25px;
   }
 
+  .about-me__section h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
   .about-me__left {
     width: 50%;
   }
@@ -1311,6 +1331,11 @@ form button {
   .about-me__section h2 {
     font-size: 38px;
     margin-bottom: 30px;
+  }
+
+  .about-me__section h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
   }
 
   .about-me-section__content {
