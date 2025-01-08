@@ -66,11 +66,37 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       };
 
+      const aboutUsAnimation = (selector, xOffset, yOffset) => {
+        gsap.from(selector, {
+          duration: 1,
+          opacity: 0,
+          x: xOffset,
+          y: yOffset,
+          scrollTrigger: {
+            trigger: ".about-us__section",
+            ...commonScrollTriggerSettings,
+          },
+        });
+      };
+
+      aboutUsAnimation(
+        ".about-us__left",
+        isDesktop ? -30 : isTablet ? -20 : 0,
+        isMobile ? 15 : 0
+      );
+
+      aboutUsAnimation(
+        ".about-us__right",
+        isDesktop ? 30 : isTablet ? 20 : 0,
+        isMobile ? 15 : 0
+      );
+
       aboutMeAnimation(
         ".about-me__left",
         isDesktop ? -30 : isTablet ? -20 : 0,
         isMobile ? 15 : 0
       );
+
       aboutMeAnimation(
         ".about-me__right",
         isDesktop ? 30 : isTablet ? 20 : 0,

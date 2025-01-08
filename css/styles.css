@@ -137,6 +137,31 @@
   text-transform: uppercase;
 }
 
+.about-us__section h2 {
+  font-family: "Soyuz Grotesk", sans-serif;
+  font-weight: 700;
+  color: #000000;
+}
+
+.about-us__left,
+.about-us__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-us__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-us__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .about-me__section h2 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
@@ -148,12 +173,16 @@
   flex-direction: column;
 }
 
+.about-us-left__item,
+.about-us-right__item,
 .about-me__left,
 .about-me-right__item,
 .service {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
 }
 
+.about-us-left__item,
+.about-us-right__item,
 .about-me__left,
 .about-me-right__item {
   position: relative;
@@ -161,6 +190,8 @@
   border-radius: 20px;
 }
 
+.about-us-left__item img,
+.about-us-right__item img,
 .about-me__left img,
 .about-me-right__item img {
   position: absolute;
@@ -169,6 +200,8 @@
   width: 40px;
 }
 
+.about-us-left__item p,
+.about-us-right__item p,
 .about-me__left p,
 .about-me-right__item p {
   font-family: "Inter", sans-serif;
@@ -388,6 +421,56 @@ form button {
   height: 18px;
 }
 
+.about-us__section h2 {
+  font-family: "Soyuz Grotesk", sans-serif;
+  font-weight: 700;
+  color: #000000;
+}
+
+.about-us__left,
+.about-us__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-us__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-us__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-us-left__item,
+.about-us-right__item {
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+}
+
+.about-us-left__item img,
+.about-us-right__item img {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 40px;
+}
+
+.about-us-left__item p,
+.about-us-right__item p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.5;
+}
+
 /* Мобильные устройства (портретная ориентация) */
 @media (min-width: 320px) {
   header {
@@ -401,6 +484,37 @@ form button {
   .menu__list {
     justify-content: space-between;
     width: 100%;
+  }
+
+  .about-us__section h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .about-us-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .about-us__left,
+  .about-us__right {
+    width: 100%;
+  }
+
+  .about-us-left__item,
+  .about-us-right__item {
+    padding: 16px;
+  }
+
+  .about-us-left__item img,
+  .about-us-right__item img {
+    width: 30px;
+  }
+
+  .about-us-left__item p,
+  .about-us-right__item p {
+    font-size: 16px;
   }
 
   .menu__list a:hover {
@@ -454,6 +568,7 @@ form button {
     height: 20%;
   }
 
+  .about-us__section,
   .about-me__section {
     margin-bottom: 35px;
   }
@@ -478,19 +593,31 @@ form button {
     gap: 18px;
   }
 
+  .about-us-left__item,
+  .about-us-right__item,
   .about-me__left,
   .about-me-right__item {
     padding: 16px;
   }
 
+  .about-us-left__item img,
+  .about-us-right__item img,
   .about-me__left img,
   .about-me-right__item img {
     width: 30px;
   }
 
+  .about-us-left__item p,
+  .about-us-right__item p,
   .about-me__left p,
   .about-me-right__item p {
     font-size: 16px;
+  }
+
+  .about-us-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
 
   .services__section {
@@ -640,6 +767,7 @@ form button {
     margin: 0 auto;
   }
 
+  .about-us__section,
   .about-me__section {
     margin-bottom: 40px;
   }
@@ -649,11 +777,15 @@ form button {
     margin-bottom: 20px;
   }
 
+  .about-us-left__item,
+  .about-us-right__item,
   .about-me__left,
   .about-me-right__item {
     padding: 18px;
   }
 
+  .about-us-left__item img,
+  .about-us-right__item img,
   .about-me__left img,
   .about-me-right__item img {
     width: 35px;
@@ -762,6 +894,7 @@ form button {
     height: 100%;
   }
 
+  .about-us__section,
   .about-me__section {
     margin-bottom: 45px;
   }
@@ -779,16 +912,53 @@ form button {
     gap: 20px;
   }
 
+  .about-us__section h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .about-us-section__content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .about-us__left,
+  .about-us__right {
+    width: 50%;
+  }
+
+  .about-us-left__item,
+  .about-us-right__item {
+    padding: 20px;
+  }
+
+  .about-us-left__item img,
+  .about-us-right__item img {
+    width: 40px;
+  }
+
+  .about-us-left__item p,
+  .about-us-right__item p {
+    font-size: 18px;
+  }
+
+  .about-us-left__item,
+  .about-us-right__item,
   .about-me__left,
   .about-me-right__item {
     padding: 20px;
   }
 
+  .about-us-left__item img,
+  .about-us-right__item img,
   .about-me__left img,
   .about-me-right__item img {
     width: 40px;
   }
 
+  .about-us-left__item p,
+  .about-us-right__item p,
   .about-me__left p,
   .about-me-right__item p {
     font-size: 18px;
@@ -909,6 +1079,26 @@ form button {
     font-size: 53px;
   }
 
+  .about-us__section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .about-us-section__content {
+    gap: 40px;
+  }
+
+  .about-us-left__item,
+  .about-us-right__item {
+    padding: 25px;
+  }
+
+  .about-us-left__item p,
+  .about-us-right__item p {
+    font-size: 19px;
+    line-height: 1.8;
+  }
+
   .main-section__right {
     width: 47%;
     height: auto;
@@ -920,6 +1110,7 @@ form button {
     height: 100%;
   }
 
+  .about-us__section,
   .about-me__section {
     margin-bottom: 50px;
   }
@@ -944,11 +1135,15 @@ form button {
     gap: 20px;
   }
 
+  .about-us-left__item,
+  .about-us-right__item,
   .about-me__left,
   .about-me-right__item {
     padding: 18px;
   }
 
+  .about-us-left__item p,
+  .about-us-right__item p,
   .about-me__left p,
   .about-me-right__item p {
     font-size: 19px;
@@ -1103,8 +1298,14 @@ form button {
     width: 100%;
   }
 
+  .about-us__section,
   .about-me__section {
     margin-bottom: 70px;
+  }
+
+  .about-us__section h2 {
+    font-size: 38px;
+    margin-bottom: 30px;
   }
 
   .about-me__section h2 {
@@ -1116,11 +1317,15 @@ form button {
     gap: 50px;
   }
 
+  .about-us-left__item,
+  .about-us-right__item,
   .about-me__left,
   .about-me-right__item {
     padding: 25px;
   }
 
+  .about-us-left__item p,
+  .about-us-right__item p,
   .about-me__left p,
   .about-me-right__item p {
     font-size: 21px;
