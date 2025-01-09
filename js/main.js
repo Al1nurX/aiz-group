@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       gsap.from(".swiper", {
-        duration: 1,
+        duration: 1.2,
         opacity: 0.5,
         y: isDesktop ? 30 : isTablet ? 20 : 15,
         scrollTrigger: {
@@ -145,6 +145,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       gsap.to(".main-section__right img", {
+        y: -10,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        duration: 2,
+      });
+
+      gsap.to(".about-me-section__img img", {
         y: -10,
         repeat: -1,
         yoyo: true,

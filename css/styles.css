@@ -126,6 +126,12 @@
   justify-content: center;
 }
 
+.arial {
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  color: #000000;
+}
+
 .main-section__left h1 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
@@ -133,8 +139,9 @@
 }
 
 .uppercase {
-  text-transform: uppercase;
   font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  color: #000000;
 }
 
 .about-us__section h2 {
@@ -150,19 +157,38 @@
   gap: 20px;
 }
 
-.about-us__left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
+.about-us__left,
 .about-us__right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.about-me__section h2, h3 {
+.about-us-left__item,
+.about-us-right__item {
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+}
+
+.about-us-left__item img,
+.about-us-right__item img {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 40px;
+}
+
+.about-us-left__item p,
+.about-us-right__item p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+
+.about-me__section h3 {
   font-family: "Soyuz Grotesk", sans-serif;
   font-weight: 700;
   color: #000000;
@@ -421,56 +447,6 @@ form button {
   height: 18px;
 }
 
-.about-us__section h2 {
-  font-family: "Soyuz Grotesk", sans-serif;
-  font-weight: 700;
-  color: #000000;
-}
-
-.about-us__left,
-.about-us__right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.about-us__left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.about-us__right {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.about-us-left__item,
-.about-us-right__item {
-  position: relative;
-  background: #f7f7f7;
-  border-radius: 20px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
-  padding: 20px;
-}
-
-.about-us-left__item img,
-.about-us-right__item img {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 40px;
-}
-
-.about-us-left__item p,
-.about-us-right__item p {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  color: #000000;
-  line-height: 1.5;
-}
-
 /* Мобильные устройства (портретная ориентация) */
 @media (min-width: 320px) {
   header {
@@ -559,43 +535,9 @@ form button {
     margin-bottom: 25px;
   }
 
-  .main-section__right {
-    width: 100%;
-  }
-
-  .main-section__right img {
-    width: 100%;
-    height: 20%;
-  }
-
   .about-us__section,
   .about-me__section {
     margin-bottom: 35px;
-  }
-
-  .about-me__section h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-  }
-
-  .about-me__section h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  .about-me-section__content {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .about-me__left {
-    width: 100%;
-  }
-
-  .about-me__right {
-    width: 100%;
-    gap: 18px;
   }
 
   .about-us-left__item,
@@ -639,6 +581,10 @@ form button {
     row-gap: 18px;
   }
 
+  .main-section__right img {
+    display: none;
+  }
+
   .service {
     display: flex;
     flex-direction: column;
@@ -659,6 +605,37 @@ form button {
   .service__content p {
     font-size: 16px;
     line-height: 19px;
+  }
+
+  .about-me__section h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .about-me-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .about-me__left {
+    width: 100%;
+  }
+
+  .about-me__right {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .about-me-section__img {
+    width: 100%;
+    height: 80%;
+    margin: 0 auto 30px;
+  }
+
+  .about-me-section__img img {
+    width: 100%;
+    height: 100%;
   }
 
   .certificates__section {
@@ -767,24 +744,9 @@ form button {
     margin-bottom: 25px;
   }
 
-  .main-section__right {
-    width: 85%;
-    margin: 0 auto;
-  }
-
   .about-us__section,
   .about-me__section {
     margin-bottom: 40px;
-  }
-
-  .about-me__section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-
-  .about-me__section h3 {
-    font-size: 26px;
-    margin-bottom: 20px;
   }
 
   .about-us-left__item,
@@ -817,6 +779,23 @@ form button {
   .service__content p {
     font-size: 16px;
     line-height: 20px;
+  }
+
+  .about-me__section h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .about-me-section__img {
+    width: 90%;
+    height: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .about-me-section__img img {
+    width: 100%;
+    height: 100%;
   }
 
   .certificates__section {
@@ -893,38 +872,9 @@ form button {
     margin-bottom: 35px;
   }
 
-  .main-section__right {
-    width: 90%;
-    height: 700px;
-    margin: 0 auto;
-  }
-
-  .main-section__right img {
-    width: 100%;
-    height: 100%;
-  }
-
   .about-us__section,
   .about-me__section {
     margin-bottom: 45px;
-  }
-
-  .about-me__section h2 {
-    font-size: 30px;
-    margin-bottom: 25px;
-  }
-
-  .about-me__section h3 {
-    font-size: 28px;
-    margin-bottom: 25px;
-  }
-
-  .about-me-section__content {
-    gap: 20px;
-  }
-
-  .about-me__right {
-    gap: 20px;
   }
 
   .about-us__section h2 {
@@ -993,6 +943,10 @@ form button {
     gap: 18px;
   }
 
+  .about-me__section img {
+    margin-bottom: 30px;
+  }
+
   .service {
     display: flex;
     flex-direction: row;
@@ -1013,6 +967,24 @@ form button {
   .service__content p {
     font-size: 16px;
     line-height: 22px;
+  }
+
+  .about-me__section h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .about-me-section__content {
+    gap: 20px;
+  }
+
+  .about-me__right {
+    gap: 20px;
+  }
+
+  .about-me-section__img {
+    width: 90%;
+    margin: 0 auto;
   }
 
   .certificates__section {
@@ -1094,24 +1066,8 @@ form button {
     font-size: 53px;
   }
 
-  .about-us__section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-  }
-
-  .about-us-section__content {
-    gap: 40px;
-  }
-
-  .about-us-left__item,
-  .about-us-right__item {
-    padding: 25px;
-  }
-
-  .about-us-left__item p,
-  .about-us-right__item p {
-    font-size: 19px;
-    line-height: 1.8;
+  .main-section__right img {
+    display: block;
   }
 
   .main-section__right {
@@ -1130,28 +1086,28 @@ form button {
     margin-bottom: 50px;
   }
 
-  .about-me-section__content {
-    display: flex;
-    flex-direction: row;
+  .about-us__section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .about-us-section__content {
     gap: 40px;
   }
 
-  .about-me__section h2 {
-    font-size: 32px;
-    margin-bottom: 25px;
+  .about-us-left__item,
+  .about-us-right__item {
+    padding: 25px;
   }
 
-  .about-me__section h3 {
-    font-size: 30px;
-    margin-bottom: 25px;
+  .about-us-left__item p,
+  .about-us-right__item p {
+    font-size: 19px;
+    /* line-height: 1.8; */
   }
 
-  .about-me__left {
-    width: 50%;
-  }
-
-  .about-me__right {
-    width: 50%;
+  .about-us__left,
+  .about-us__right {
     gap: 20px;
   }
 
@@ -1215,6 +1171,30 @@ form button {
   .service__content p {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  .about-me-section__content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .about-me__section h3 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .about-me-section__img img {
+    display: none;
+  }
+
+  .about-me__left {
+    width: 50%;
+  }
+
+  .about-me__right {
+    width: 50%;
+    gap: 20px;
   }
 
   .certificates__section {
@@ -1328,17 +1308,7 @@ form button {
     margin-bottom: 30px;
   }
 
-  .about-me__section h2 {
-    font-size: 38px;
-    margin-bottom: 30px;
-  }
-
-  .about-me__section h3 {
-    font-size: 32px;
-    margin-bottom: 25px;
-  }
-
-  .about-me-section__content {
+  .about-us-section__content {
     gap: 50px;
   }
 
@@ -1389,6 +1359,15 @@ form button {
   .service__content p {
     font-size: 19px;
     line-height: 28px;
+  }
+
+  .about-me__section h3 {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  .about-me-section__content {
+    gap: 50px;
   }
 
   .certificates__section {
