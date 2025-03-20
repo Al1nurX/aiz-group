@@ -22,7 +22,7 @@ This project is a landing page for Laura, an expert in antitrust law. The page i
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/laura-landing-page.git
+   git clone https://github.com/Al1nurX/aiz-group.git
 
 2. Open `index.html` in your browser to view the landing page.
 
