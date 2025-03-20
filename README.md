@@ -1,4 +1,4 @@
-# Aiz Group's Landing Page
+# AizGroup's Landing Page
 
 This project is a landing page for Laura, an expert in antitrust law. The page includes sections about her experience, services offered, client testimonials, and a contact form. The design is responsive and adapts to various screen sizes, ensuring a seamless user experience on both desktop and mobile devices. The page also features a Swiper slider for displaying testimonials with a parallax effect and smooth animations.
 
